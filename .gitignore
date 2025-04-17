@@ -2,3 +2,7 @@ instantclient-sdk-linuxx64.zip
 instantclient-basic-linuxx64.zip
 instantclient_23_7/
 META-INF/
+htm/sga-web/*
+htm/sga-web/.env
+atualiza_sgaprod/*.log
+atualiza_sgaprod/atualiza_sgaprod.sh

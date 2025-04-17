@@ -38,3 +38,5 @@ docker build -t nginx-sga:v1.0 .
 
 # Executa o container imagem se tiver upgrade
 docker-compose up --build -d
+
+http://172.30.1.90:8080/informa.php
