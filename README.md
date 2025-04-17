@@ -32,3 +32,9 @@ unzip -o instantclient-sdk-linux*.zip
 ```bash
 https://github.com/pedronasc/nginx-sga.git
 cd nginx-sga
+
+# Cria a imagem do conteiner com o nome nginx-sga:v1.0
+docker build -t nginx-sga:v1.0 .
+
+# Executa o container imagem se tiver upgrade
+docker-compose up --build -d
