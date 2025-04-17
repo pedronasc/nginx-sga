@@ -13,7 +13,7 @@ RUN apt update && apt upgrade -y && \
     php8.3-ctype php8.3-fileinfo php8.3-xsl php8.3-soap php8.3-ftp \
     php8.3-pdo php8.3-pdo-pgsql php8.3-pgsql php8.3-gd php-pear php8.3-dev \
     build-essential \
-    libasound2t64 \
+    libaio-dev libasound2t64 \
     python3 python3-dev python3-venv python3-pip libopencv-dev libzbar0 && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
@@ -35,9 +35,9 @@ RUN mkdir -p /opt/oracle && \
     cp -r instantclient_23_7/* /opt/oracle && \
     echo /opt/oracle > /etc/ld.so.conf.d/oracle-instantclient.conf && \
     ldconfig && \
-    ln -s /usr/lib/x86_64-linux-gnu/libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
+    ln -sf /usr/lib/x86_64-linux-gnu/libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
 
-# Instalação do oci8
+# OCI8 via PECL
 RUN echo "instantclient,/opt/oracle" | pecl install oci8 && \
     echo "extension=oci8.so" > /etc/php/8.3/mods-available/oci8.ini && \
     phpenmod oci8
