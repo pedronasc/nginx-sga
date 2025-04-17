@@ -1,0 +1,16 @@
+services:
+  web:
+    image: nginx-sga:v1.0
+    container_name: nginx-sga
+    build:
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./htm/sga-web/:/var/www/html
+      - ./config/default.conf:/etc/nginx/sites-available/default
+    environment:
+      - DEBIAN_FRONTEND=noninteractive
+      - LD_LIBRARY_PATH=/opt/oracle
+    restart: unless-stopped
