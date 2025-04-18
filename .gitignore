@@ -5,4 +5,4 @@ META-INF/
 htm/sga-web/*
 htm/sga-web/.env
 atualiza_sgaprod/*.log
-atualiza_sgaprod/atualiza_sgaprod.sh
+
