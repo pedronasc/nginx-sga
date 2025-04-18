@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV LD_LIBRARY_PATH=/opt/oracle
 
-# Dependências principais
+# Dependências principais + PHP + Python + Chrome + utilitários
 RUN apt update && apt upgrade -y && \
     apt install -y software-properties-common curl gnupg unzip git vim \
     nginx \
@@ -14,7 +14,15 @@ RUN apt update && apt upgrade -y && \
     php8.3-pdo php8.3-pdo-pgsql php8.3-pgsql php8.3-gd php-pear php8.3-dev \
     build-essential \
     libaio-dev libasound2t64 \
-    python3 python3-dev python3-venv python3-pip libopencv-dev libzbar0 && \
+    python3 python3-dev python3-venv python3-pip libopencv-dev libzbar0 \
+    # Dependências para Chrome
+    fonts-liberation libu2f-udev libvulkan1 \
+    libxss1 xdg-utils libnss3 libatk-bridge2.0-0 libgtk-3-0 \
+    libx11-xcb1 libxcb-dri3-0 libdrm2 wget && \
+    # Instalação do Google Chrome (mais estável para Puppeteer)
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    apt install -y ./google-chrome-stable_current_amd64.deb && \
+    rm google-chrome-stable_current_amd64.deb && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
 # Composer
