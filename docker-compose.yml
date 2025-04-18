@@ -8,7 +8,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./htm/sga-web:/var/www/html
+      - ./htm/sga-web:/var/www/html/sga-web
       - ./config/default.conf:/etc/nginx/sites-available/default
     environment:
       - DEBIAN_FRONTEND=noninteractive
