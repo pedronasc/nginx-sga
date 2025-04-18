@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: dockerfile
     ports:
-      - "80:80"
+      - "8180:80"
     volumes:
       - ./htm/sga-web:/var/www/html/sga-web
       - ./config/default.conf:/etc/nginx/sites-available/default
@@ -14,3 +14,14 @@ services:
       - DEBIAN_FRONTEND=noninteractive
       - LD_LIBRARY_PATH=/opt/oracle
     restart: unless-stopped
+    labels:
+      - "traefik.http.routers.nginx-sga.rule=Host(`sga-docker.unifev.corp.br`)"
+      #- "traefik.http.routers.nginx-sga.service=nginx-sga"
+      - "traefik.http.routers.nginx-sga.entrypoints=web"
+      #- "traefik.http.routers.nginx-sga.tls.certresolver=myresolver"
+      # - "traefik.http.routers.nginx-sga.middlewares=dashboard-auth@file"
+    networks:
+      - traefik
+networks:
+  traefik:
+    external: true

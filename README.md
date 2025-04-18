@@ -17,6 +17,13 @@ Ambiente completo Dockerizado com Ubuntu 24.04, ideal para aplicações PHP (Lar
   - `pyzbar` para leitura de códigos de barras e QR Code
 - **libzbar0**, **libasound2t64**, e outras dependências úteis
 
+
+### 1. Clonar o Projeto
+
+```bash
+https://github.com/pedronasc/nginx-sga.git
+cd nginx-sga
+
 # Baixando Instant Client
 wget --content-disposition https://download.oracle.com/otn_software/linux/instantclient/instantclient-basic-linuxx64.zip
 wget --content-disposition https://download.oracle.com/otn_software/linux/instantclient/instantclient-sdk-linuxx64.zip
@@ -27,17 +34,16 @@ unzip -o instantclient-sdk-linux*.zip
 
 ## 🚀 Como Usar
 
-### 1. Clonar o Projeto
-
-```bash
-https://github.com/pedronasc/nginx-sga.git
-cd nginx-sga
-
 # Cria a imagem do conteiner com o nome nginx-sga:v1.0
 docker build -t nginx-sga:v1.0 .
 
 # Executa o container imagem se tiver upgrade
 docker-compose up --build -d
 
-http://172.30.1.90:8080/informa.php
+http://<--host-docker-->:8180/
 
+# Stopa o conteiner e recria 
+docker compose down && docker compose up -d
+
+# Stopa o conteiner e recria com build
+docker compose down && docker compose up --build -d
