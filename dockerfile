@@ -56,7 +56,7 @@ RUN python3 -m venv /opt/venv && \
     /opt/venv/bin/pip install opencv-python pyzbar
 
 # Diretório padrão
-WORKDIR /var/www/html
+WORKDIR /var/www/html/sga-web/
 
 # Script de entrada
 COPY entrypoint.sh /entrypoint.sh

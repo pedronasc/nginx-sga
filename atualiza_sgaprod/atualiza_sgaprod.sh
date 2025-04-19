@@ -15,13 +15,15 @@ DATA=`date +%d.%m.%Y_%H:%M`
 chmod 777 ~/docker/nginx-sga/htm/sga-web/ -Rf
 
 rsync -rltpzuv --delete --stats --progress \
-  --exclude="node_modules" \
   --exclude=".env" \
   --exclude=".git" \
   --exclude=".gitattributes" \
   --exclude=".gitignore" \
   --exclude="storage/framework/sessions/" \
   -e ssh root@172.30.1.36:/htm/sgadev/sga-web/ ~/docker/nginx-sga/htm/sga-web/
+
+# Recria diretorio de sessions caso não exita
+mkdir -p ~/docker/nginx-sga/htm/sga-web/storage/framework/sessions
 
 chmod 777 ~/docker/nginx-sga/htm/sga-web/ -Rf
 
