@@ -25,6 +25,15 @@ rsync -rltpzuv --delete --stats --progress \
 # Recria diretorio de sessions caso não exita
 mkdir -p ~/docker/nginx-sga/htm/sga-web/storage/framework/sessions
 
+cat > ~/docker/nginx-sga/htm/sga-web/public/informa.php <<EOF
+<?php
+
+phpinfo();
+phpinfo(INFO_MODULES);
+
+?>
+EOF
+
 chmod 777 ~/docker/nginx-sga/htm/sga-web/ -Rf
 
 docker exec -it nginx-sga npm install

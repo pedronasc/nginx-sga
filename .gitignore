@@ -7,3 +7,10 @@ htm/sga-web/.env
 atualiza_sgaprod/*.log
 
 .env
+terraform.tfstate
+.terraform.lock.hcl
+.terraform.tfstate.lock.info
+.terraform/providers/registry.terraform.io/kreuzwerker/docker/3.0.2/linux_amd64/terraform-provider-docker_v3.0.2
+.terraform/
+terraform.tfstate.backup
+.vscode/settings.json
