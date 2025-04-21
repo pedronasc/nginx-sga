@@ -58,7 +58,8 @@ resource "docker_container" "nginx_sga" {
   # Bloco environment (corrigido)
   env = [
     "DEBIAN_FRONTEND=noninteractive",
-    "LD_LIBRARY_PATH=/opt/oracle"
+    "LD_LIBRARY_PATH=/opt/oracle",
+    "TZ=America/Sao_Paulo"
   ]
 
   networks_advanced {

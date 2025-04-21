@@ -10,6 +10,8 @@ services:
     volumes:
       - ./htm/sga-web:/var/www/html/sga-web
       - ./config/default.conf:/etc/nginx/sites-available/default
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     environment:
       - DEBIAN_FRONTEND=noninteractive
       - LD_LIBRARY_PATH=/opt/oracle

@@ -12,7 +12,7 @@ RUN apt update && apt upgrade -y && \
     php8.3-phar php8.3-intl php8.3-bcmath php8.3-calendar php8.3-posix \
     php8.3-ctype php8.3-fileinfo php8.3-xsl php8.3-soap php8.3-ftp \
     php8.3-pdo php8.3-pdo-pgsql php8.3-pgsql php8.3-gd php-pear php8.3-dev \
-    build-essential \
+    build-essential tzdata\
     libaio-dev libasound2t64 \
     python3 python3-dev python3-venv python3-pip libopencv-dev libzbar0 \
     # Dependências para Chrome
