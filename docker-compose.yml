@@ -17,8 +17,16 @@ services:
       - LD_LIBRARY_PATH=/opt/oracle
     restart: unless-stopped
     labels:
+      # HTTP
       - "traefik.http.routers.nginx-sga.rule=Host(`sga-docker.unifev.corp.br`)"
       - "traefik.http.routers.nginx-sga.entrypoints=web"
+      #- "traefik.http.routers.nginx-sga.middlewares=redirect-to-https"  # opcional
+
+      # HTTPS
+      - "traefik.http.routers.nginx-sga-secure.rule=Host(`sga-docker.unifev.corp.br`)"
+      - "traefik.http.routers.nginx-sga-secure.entrypoints=websecure"
+      - "traefik.http.routers.nginx-sga-secure.tls=true"
+      #- "traefik.http.routers.nginx-sga-secure.tls.certresolver=letsencrypt"  # se estiver usando Let's Encrypt
     networks:
       - traefik
 networks:
