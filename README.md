@@ -35,7 +35,7 @@ unzip -o instantclient-sdk-linux*.zip
 ## 🚀 Como Usar
 
 # Cria a imagem do conteiner com o nome nginx-sga:v1.0
-docker build -t nginx-sga:v1.0 .
+docker build -t unifev/nginx-sga:v1.0 .
 
 # Executa o container imagem se tiver upgrade
 docker-compose up --build -d

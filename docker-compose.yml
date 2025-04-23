@@ -1,6 +1,6 @@
 services:
   web:
-    image: nginx-sga:v1.0
+    image: unifev/nginx-sga:v1.0
     container_name: nginx-sga
     build:
       context: .
